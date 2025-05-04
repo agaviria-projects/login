@@ -5,11 +5,17 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import { useState } from "react";
 
 function App() {
-  let [isAuthenticated, setIsAuthenticated] = useState(false);
+  let [isAuthenticated, setIsAuthenticated] = useState(localStorage.getItem('isAuthenticated')=="true");
+  let [userName, setUserName] = useState(localStorage.getItem('userNmae')||'');
+  
+  //console.log("usuario logueado: "+isAuthenticated);
   let handleLogin =()=>{
      setIsAuthenticated(true);//token de autorizacion
   };
 
+  let handleLogout =()=>{
+    setIsAuthenticated(false);
+  }
 
   return (
     <>
