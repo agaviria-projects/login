@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Dashboard() {
+export default function Dashboard({user,onLogout}) {
   return (
         <>
         <div className="container">
@@ -21,13 +21,13 @@ export default function Dashboard() {
                 <div className="col-sm-6">
                     <ul className='nav justify-content-end'>
                         <li class="nav-item">
-                            <a class="nav-link disabled"><span className='btn btn-danger'>Logout</span></a>
+                            <a class="nav-link"><span className='btn btn-danger' onClick={onLogout}>Logout</span></a>
                         </li>
                     </ul>  
                 </div>
             </div>
         </div>
-        <h1 className='text-primary'> Bienvenido Usuario</h1>
+        <h1 className='text-primary'> Bienvenido {user}</h1>
         </> 
   )
 }

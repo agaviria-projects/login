@@ -14,7 +14,7 @@ export default function Login({onLogin}) {
         try{
            let respuesta =await axios.post("http://localhost:8081/loginApi/login",data); 
            alert("Bienvenido " +respuesta.data.nombre);
-           onLogin();     
+           onLogin(respuesta.data.nombre);     
            navigate("/Dashboard");
            console.log("respuesta del servidor");
            console.log(respuesta)    
