@@ -20,6 +20,7 @@ export default function Login({onLogin}) {
            console.log(respuesta)    
         }catch(error){
             console.log(error);
+            alert("el usuario y/o contraseña es incorrecto");
         }
     };
 
