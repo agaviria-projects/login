@@ -1,13 +1,26 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 
-export default function Login() {
+export default function Login({onLogin}) {
     let {register, handleSubmit, formState : {errors}} = useForm();
+    let navigate = useNavigate();
 
-    let onSubmited=(data)=>{
+    let onSubmited= async(data)=>{
+        console.log("datos del formulario");
         console.log(data);
-
+        try{
+           let respuesta =await axios.post("http://localhost:8081/loginApi/login",data); 
+           alert("Bienvenido " +respuesta.data.nombre);
+           onLogin();     
+           navigate("/Dashboard");
+           console.log("respuesta del servidor");
+           console.log(respuesta)    
+        }catch(error){
+            console.log(error);
+        }
     };
 
   return (

@@ -14,10 +14,10 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/login" element={ isAuthenticated ? <Navigate to="/Dashboard"/> : <Login/>}/>
-        <Route path="/Register" element={ isAuthenticated ? <Navigate to="/Dashboard"/> : <Register/>}/>
+        <Route path="/login" element={ isAuthenticated ? <Navigate to="/Dashboard"/> : <Login onLogin={handleLogin}/>}/>
+        <Route path="/Register" element={ isAuthenticated ? <Navigate to="/Dashboard"/> : <Register onLogin={handleLogin}/>}/>
         <Route path="/Dashboard" element={ isAuthenticated ? <Dashboard/> : <Navigate to="/login"/> }/>
-        <Route path="*" element={<Login/>}/>
+        <Route path="*" element={<Login onLogin={handleLogin}/>}/>
       </Routes>
     </>
   )
